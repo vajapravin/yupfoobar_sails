@@ -1,0 +1,2 @@
+# YupFooBar
+### a Sails application
