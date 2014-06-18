@@ -14,27 +14,13 @@
 
 module.exports.adapters = {
 
-  // If you leave the adapter config unspecified 
-  // in a model definition, 'default' will be used.
-  'default': 'mysql',
-
-  // Persistent adapter for DEVELOPMENT ONLY
-  // (data is preserved when the server shuts down)
-  disk: {
-    module: 'sails-mysql'
-  },
-
-  // MySQL is the world's most popular relational database.
-  // Learn more: http://en.wikipedia.org/wiki/MySQL
-  mysql: {
-
-    module: 'sails-mysql',
+  'default': 'mongo',
+  mongo: {
+    module: 'sails-mongo',
     host: 'localhost',
+    port: 27017,
     user: 'root',
-    // Psst.. You can put your password in config/local.js instead
-    // so you don't inadvertently push it up if you're using version control
-    password: 'synechron', 
-    port: 3306,
+    password: 'seven',
     database: 'yupfoobar_development'
   }
 };

@@ -11,11 +11,12 @@ module.exports = {
   attributes: {
   	
     name: 'string',
-
+    user_id: 'integer',
+    /*
     users: {
         collection: 'user',
         via: 'room'
-    }
+    }*/
    
   }
 

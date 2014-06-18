@@ -25,24 +25,26 @@ module.exports = {
 
   // TODO: register room action
   register: function(req, res) {
-    
-    // TODO: Create room and member(user) of that room
-    var room = Room.create({name: req.param('roomName')}).exec(function(err, room) {
+
+    var user = User.create( { username: req.body.username, password: req.body.password } ).exec( function(err, user) {
             
-            // Check first is error
+            return res.json( { success: true, message: 'Room successfully created with user!' } );
+
+            // check first is error
             if (err) {
                 console.log('Error: ' + err);
-                return res.serverError(err);
+                res.serverError(err);
             }
-            
-            // TODO: If error not found, create user and send successfull message as response
-            User.create( { username: req.param('username'), password: req.param('password'), room: room.id } ).exec( function(err, user) {
-                    return res.json( { success: true, message: 'Room successfull created with user!' } );
-                 });
+
+            // TODO: If error not found, create room and send successfull message as response
+            Room.create( { name: req.body.roomname, user_id: user.id }).exec( function(err, room) {
+                return res.json( { success: true, message: 'Room successfully created with user!' } );
+            });
+
         });
+    
+    res.json(user);
 
-    res.json(room);
   }
-
   
 };

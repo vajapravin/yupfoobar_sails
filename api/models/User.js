@@ -14,12 +14,7 @@ module.exports = {
   attributes: {
     username: 'string',
     password: 'string',
-    loggedIn: 'boolean',
-
-    // TODO: Add a reference to room
-    room: {
-        model: 'room'
-    }
+    loggedIn: 'boolean'
   },
 
   // TODO: encrypt password before create
